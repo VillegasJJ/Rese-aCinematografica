@@ -1,0 +1,513 @@
+/* Reset básico */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+/* Efecto de héroe (imagen de cabecera) */
+.hero {
+    background: url('https://www.filmink.com.au/wp-content/uploads/2023/07/sound-of-freedom-poster.jpg') no-repeat left center;
+    background-size: contain; /* Ajusta la imagen para que se ajuste completamente */
+    height: 80vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.hero .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero h1 {
+  position: relative;
+  top: 0; 
+  left: 10%; 
+  color: white; 
+  padding: 10px; 
+  font-size: 4rem;
+}
+
+.hero p {
+  position: relative;
+  top: 0; 
+  left: 10%; 
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Botón "Ver Más" */
+.cta-button {
+    position: relative;
+    top: 15%;
+    left: 10%; 
+    padding: 1rem 2rem;
+    background-color: #ff3e3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    animation: fadeIn 3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d63636;
+}
+/* Animación de entrada de secciones */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Animación para el cambio de escala de los botones */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Navegación */
+nav {
+    background-color: #333;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 5px;
+    height: 40px;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    position: relative;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff3e3e;
+    transition: width 0.3s;
+}
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* Secciones de contenido */
+.content-section {
+    padding: 2rem;
+    background-color: white;
+    margin: 2rem 0;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    border-radius: 10px;
+}
+
+.content-section:hover {
+    transform: translateY(-10px);
+}
+
+.content-section h2 {
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alineamos los elementos al principio, no al centro */
+    z-index: 1000;
+    padding-top: 10px; /* Espacio de 10px desde la parte superior de la pantalla */
+}
+
+/* Contenedor para la imagen y la descripción */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: flex-start; /* Alinea el contenido arriba */
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 90%; /* Evita que el modal sea demasiado ancho */
+    margin-top: 0;
+}
+
+/* Estilo para la imagen dentro del modal */
+.modal-content img {
+    max-width: calc(100% - 100px); /* Espacio de 50px a cada lado */
+    max-height: calc(100vh - 150px); /* Limita la altura de la imagen */
+    object-fit: contain; /* Mantiene la proporción de la imagen */
+    border-radius: 10px;
+    margin-top: 10px; /* Separación de 10px desde la parte superior de la imagen */
+}
+
+/* Información adicional sobre la imagen */
+.modal-content .info {
+    margin-top: 10px; /* Separación entre el video y la descripción */
+    color: #333;
+    width: 50%;
+    font-size: 1.1rem;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente para el texto */
+    color: white;
+    border-radius: 5px;
+}
+
+/* Botón de cerrar */
+.modal .close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+
+/* Estilo para la sección de galería */
+#galeria {
+    padding: 2rem;
+    background-color: white;
+    margin: 0; /* Eliminar margen superior */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    border-radius: 10px;
+    margin-bottom: 2rem; /* Espacio debajo de la galería */
+}
+
+#galeria h2 {
+    margin-bottom: 1rem; /* Reducir margen inferior para acercar el título a los videos */
+    color: #444;
+    text-align: center; /* Centra el texto del título */
+}
+
+/* Galería de videos */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem; /* Ajusta el espacio entre los elementos */
+    justify-items: center; /* Asegura que los videos estén centrados dentro de su celda */
+}
+
+/* Estilo para los videos dentro de la galería */
+.video-container {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos (video y botón) en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Asegura que los elementos estén centrados en el contenedor */
+    text-align: center; /* Centra el texto dentro de cada video */
+}
+
+/* Estilo para los videos dentro de la galería */
+.video-container video {
+    width: 300px;
+    height: 180px;
+    object-fit: cover; /* Asegura que la imagen se recorte si es necesario */
+}
+
+/* Estilo para el botón "Ver descripción" */
+.video-link {
+    display: inline-block;
+    margin-top: 10px; /* Separación del video */
+    padding: 0.5rem 1rem;
+    background-color: #ff3e3e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-align: center; /* Centra el texto dentro del botón */
+}
+
+.video-link:hover {
+    background-color: #d63636;
+}
+
+/* Estilo para la descripción de la escena */
+.scene-description {
+    margin-top: 10px;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sinopsis {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    width: 500px;
+    margin: 30px;
+    border-radius: 10px;
+}
+
+.sinopsis-container {
+    display: flex; /* Flexbox para distribuir en línea */
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+    align-items: center; /* Alinea verticalmente al centro */
+    gap: 30px; /* Espacio entre los elementos */
+}
+
+#sinopsis1 {
+    text-align: center;
+    display: flex;
+    align-items: right;
+    padding: 2rem;
+    background-color: white;
+    width: 500px;
+    margin: 30px;
+    border-radius: 10px;
+}
+
+.arrow {
+    font-size: 6rem; /* Tamaño de la flecha */
+    color: #333; /* Color de la flecha */
+    padding: 0 10px; /* Espacio alrededor de la flecha */
+    text-align: center;
+}
+/* Estilo para el contenedor de las preguntas */
+.info-container {
+    display: flex; /* Disposición en fila */
+    justify-content: space-between; /* Separa los elementos */
+    align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+    gap: 30px; /* Espacio entre los elementos */
+}
+
+/* Estilo para cada pregunta y su contenido */
+.info-item {
+    flex: 1; /* Toma el mismo espacio en la fila */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Línea vertical entre las preguntas */
+.vertical-line {
+    width: 1px;
+    background-color: #ccc; /* Color de la línea */
+    height: 100%; /* Ajusta la altura de la línea */
+    margin: 0 20px; /* Espacio a los lados de la línea */
+}
+
+/* Contenedor de las imágenes de las películas */
+.zaer {
+    display: flex;
+    justify-content: space-between; /* Distribuye las imágenes equitativamente */
+    gap: 20px; /* Espacio entre las imágenes */
+    margin-top: 20px; /* Separación entre el texto y las imágenes */
+}
+
+/* Estilo para las imágenes */
+.img-esc {
+    width: 45%; /* Establece el ancho de las imágenes, ajustando para que quepan dos por fila */
+    height: auto; /* Mantiene la relación de aspecto */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera alrededor de las imágenes */
+}
+
+.cast{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.btn-reparto {
+    display: inline-block;
+    margin-top: 10px; /* Espaciado entre el texto y el botón */
+    padding: 10px 20px;
+    background-color: #0ca080; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-reparto:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+    transition: background-color 0.3s ease;
+}
+
+/* Modal reutilizable para reparto */
+.modal-content h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.modal-content-reparto {
+    display: flex;
+    background-image: url('https://img.freepik.com/vector-gratis/zoom-velocidad-tubo-luz-azul-abstracto-tecnologia-fondo-negro_1142-9980.jpg?semt=ais_hybrid');
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: flex-start; /* Alinea el contenido arriba */
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 90%; /* Evita que el modal sea demasiado ancho */
+    height: 500px;
+    margin-top: 0;
+
+    .body h2{
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .cta-button{
+        margin-top:89px;
+        margin-left:180px;
+        justify-items:left;
+        align-items:self-start;
+    }
+}
+
+.modal-content .cta-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #ff3e3e;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.modal-content .cta-button:hover {
+    background-color: #d63636;
+}
+
+
+/* Estilo para la clase cast que contiene las imágenes */
+.cast {
+    gap: 20px; /* Espacio entre las imágenes */
+    margin: 20px 0; /* Puedes añadir un margen para separar el contenido */
+}
+
+/* Estilo del contenedor de la imagen */
+.movie-image-container {
+    perspective: 1000px; /* Esto crea el efecto de perspectiva para el voltear */
+    width: 250px; /* Ajusta el ancho del contenedor */
+    height: 350px; /* Ajusta la altura del contenedor */
+}
+
+/* Estilo de la imagen y la información (volteada) */
+.movie-image {
+    justify-content: space-between;
+    display: flex;
+    width: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+    height: 100%; /* Asegura que la imagen ocupe todo el contenedor */
+    transform-style: preserve-3d; /* Permite que el contenido del contenedor tenga efecto 3D */
+    transition: transform 0.6s; /* La duración del voltear */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* La información que se oculta detrás de la imagen */
+.movie-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1); /* Fondo negro */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    transform: rotateY(180deg); /* Inicialmente está volteada */
+    backface-visibility: hidden; /* Evita que se vea la cara opuesta cuando está volteada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* Voltear la imagen al pasar el cursor */
+.movie-image:hover {
+    transform: rotateY(180deg); /* Al pasar el cursor, la imagen se voltea */
+}
+
+/* Ajuste para los textos dentro de la parte trasera */
+.movie-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.movie-info p {
+    font-size: 0.8rem;
+}
